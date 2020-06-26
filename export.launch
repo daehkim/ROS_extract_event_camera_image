@@ -1,0 +1,7 @@
+<launch>
+  <node pkg="rosbag" type="play" name="rosbag" required="true" args="/home/xshe6/dhkim/export_event_img/tmp/sample.bag"/>
+  <node name="extract" pkg="image_view" type="extract_images" respawn="false" required="true" output="screen" cwd="ROS_HOME">
+    <remap from="image" to="/dvs_rendering"/>
+    <param name="sec_per_frame" value="0.0167"/>
+  </node>
+</launch>
